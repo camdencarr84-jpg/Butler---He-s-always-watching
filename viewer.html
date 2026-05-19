@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Watch · Butler</title>
+<link rel="stylesheet" href="./styles.css" />
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="./"><span class="dot"></span> Butler</a>
+  <nav><a href="./host.html">Broadcast mode →</a></nav>
+</header>
+
+<div class="studio">
+  <div>
+    <div class="stage">
+      <video id="remote" autoplay playsinline controls></video>
+      <div class="badge" id="liveBadge" style="display:none"><span class="live"></span> LIVE</div>
+    </div>
+    <div class="log" id="log" style="margin-top:14px">Enter a stream ID or open a share link to connect.</div>
+  </div>
+
+  <aside class="panel">
+    <h2>Connect</h2>
+    <div class="field">
+      <label>Stream ID</label>
+      <input class="input" id="idIn" placeholder="butler-xxxxxx" />
+    </div>
+    <div class="row">
+      <button class="btn primary" id="joinBtn">Join Stream</button>
+      <button class="btn ghost" id="leaveBtn" disabled>Leave</button>
+    </div>
+    <div class="status" id="sigStatus"><span class="d"></span><span id="sigText">Idle</span></div>
+
+    <h2>Recording</h2>
+    <div class="row">
+      <button class="btn ok" id="recBtn" disabled>● Record incoming</button>
+      <button class="btn ghost" id="recStop" disabled>Stop & Save</button>
+    </div>
+  </aside>
+</div>
+
+<script src="./app.js"></script>
+<script>initViewer();</script>
+</body>
+</html>
